@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSliderModule } from '@angular/material/slider';
 import { ErrorPageComponent } from './shared/error-page/error-page.component';
 import { AuthRoutingModule } from './auth/auth-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { AuthRoutingModule } from './auth/auth-routing.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
