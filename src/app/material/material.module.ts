@@ -5,6 +5,12 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatListModule} from '@angular/material/list';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import {MatInputModule} from '@angular/material/input';
+
+
 
 
 @NgModule({
@@ -14,7 +20,11 @@ import {MatToolbarModule} from '@angular/material/toolbar';
     MatIconModule,
     MatListModule,
     MatSidenavModule,
-    MatToolbarModule
+    MatToolbarModule,
+    MatGridListModule,
+    MatProgressSpinnerModule,
+    MatAutocompleteModule,
+    MatInputModule
   ]
 })
 export class MaterialModule { }
