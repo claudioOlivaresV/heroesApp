@@ -1,1 +1,72 @@
-<p>agregar works!</p>
+<h1>Nuevo Heroe </h1>
+
+<div class="row">
+    <div class="col-md-6 col-12">
+        <div class="row">
+            <div class="col-6">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Super Héroe</mat-label>
+                    <input matInput placeholder="Batman" [(ngModel)]="heroe.superhero">
+                </mat-form-field>
+            </div>
+            <div class="col-6">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Alter Egod</mat-label>
+                    <input matInput placeholder="Bruce Wayne" [(ngModel)]="heroe.alter_ego">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Primera Aparición</mat-label>
+                    <input matInput placeholder="The Batman" [(ngModel)]="heroe.first_appearance">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Personajes</mat-label>
+                    <input matInput placeholder="Robin" [(ngModel)]="heroe.characters">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field appearance="fill" class="w-100">
+                    <mat-label>Creador</mat-label>
+                    <mat-select [(ngModel)]="heroe.publisher">
+                      <mat-option *ngFor="let food of publisher" [value]="food.id">
+                        {{food.desc}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <mat-form-field class="w-100" appearance="fill" >
+                    <mat-label>Foto Url</mat-label>
+                    <input matInput type="url" placeholder="image" [(ngModel)]="heroe.alt_img" aria-label="subir imagen">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 d-flex justify-content-end" >
+                <button mat-raised-button color="warn" class="mx-3" (click)="eliminar()" *ngIf="heroe.id">
+                    <mat-icon>remove</mat-icon>
+                    Borrar
+                </button>
+                <button mat-raised-button color="primary" (click)="guardar()">
+                    <mat-icon>add</mat-icon>
+                    {{this.heroe.id ? 'Editar' : 'Guardar'}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4 col-12">
+        <img [src]="heroe | imagen" class="w-100" alt="{{heroe.superhero}}">
+    </div>
+
+</div>

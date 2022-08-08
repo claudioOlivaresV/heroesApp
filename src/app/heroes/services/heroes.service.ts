@@ -17,5 +17,17 @@ export class HeroesService {
   }
   getHeroeById(id:string): Observable<Heroe> {
     return this.http.get<Heroe>(this.baseUrl + '/heroes/' + id);
-   }
+  }
+  getSugerencias(termino: string): Observable<Heroe[]> {
+    return this.http.get<Heroe[]>(this.baseUrl + '/heroes?q=' + termino);
+  }
+  postHeroes(heroe: Heroe): Observable<Heroe> {
+    return this.http.post<Heroe> (this.baseUrl + '/heroes' , heroe)
+  }
+  actualizarHeroes(heroe: Heroe): Observable<Heroe> {
+    return this.http.put<Heroe> (this.baseUrl + '/heroes/'+heroe.id , heroe)
+  }
+  borrarHeroes(id: string): Observable<any> {
+    return this.http.delete<any> (this.baseUrl + '/heroes/'+id )
+  }
 }

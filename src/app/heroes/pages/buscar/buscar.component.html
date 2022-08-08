@@ -1,14 +1,31 @@
-<mat-form-field class="example-full-width" appearance="fill">
-    <mat-label>Number</mat-label>
-    <input type="text"
-           placeholder="Pick one"
-           aria-label="Number"
-           matInput
-           [formControl]="myControl"
-           [matAutocomplete]="auto">
-    <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete">
-      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
+<h1>Buscador de Heroes</h1>
+<mat-divider></mat-divider>
+<h3>Buscador</h3>
+<div class="row">
+  <div class="col-12">
+
+  </div>
+  <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Number</mat-label>
+      <input type="text"
+             placeholder="Batman"
+             aria-label="Number"
+             matInput
+             [(ngModel)]="termino"
+             [matAutocomplete]="auto"
+             (input)="buscar()">
+      <mat-autocomplete autoActiveFirstOption #auto="matAutocomplete" (optionSelected)="select($event)">
+        <mat-option *ngFor="let heroe of heroes" [value]="heroe">
+          {{heroe.superhero}}
+        </mat-option>
+        <mat-option *ngIf="!heroes.length && termino.length" value="" >
+          {{ 'No se encontro nada para ' + termino}}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+</div>
+<div class="row">
+  <div class="col-6">
+    <app-heroe-tarjeta [heroe]="heroeSeleccionado" *ngIf="heroeSeleccionado"></app-heroe-tarjeta>
+  </div>
+</div>

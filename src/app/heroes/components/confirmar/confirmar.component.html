@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>¿Está seguro?</h1>
+<div mat-dialog-content>
+  Esta a punto de Borrar a {{data.superhero}}
+</div>
+<div mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-raised-button color="warn" [mat-dialog-close]="true" cdkFocusInitial>Si</button>
+</div>
